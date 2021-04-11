@@ -28,3 +28,6 @@ Every person who has knowledge of the rumor obeys these rules:
 ## Notes
 - Deadline is in ten days
 - Please start early as programming may require more time than a first glance.
+
+# Plots
+![image](https://user-images.githubusercontent.com/18319568/114324395-af163580-9af7-11eb-827e-1335aae3c5ee.png)
