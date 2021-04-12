@@ -38,9 +38,6 @@ class Student():
             self._able_to_spread = False
 
     def tell(self, other):
-        # if self.heard() and not self.stop_spreading:
-        # if not self.stop_spreading:
-        # if self.able_to_tell():
         if randint(0, 1):
             other.hear()
 
@@ -104,7 +101,7 @@ def avg_main_percent(student_cnt: int = 2, stop_percent: float = 1.0, trials: in
     return tot
 
 
-def experiment(trials: int = 1000, run_max_time: bool = False, run_max_percent: bool = True):
+def experiment(trials: int = 100, run_max_time: bool = False, run_max_percent: bool = False):
     if run_max_time:
         console.rule('[bold blue] Maximum Time')
         inds = [100, 1000, 10000]
@@ -137,10 +134,8 @@ def experiment(trials: int = 1000, run_max_time: bool = False, run_max_percent: 
 
     if run_max_percent:
         console.rule('[bold blue] Maximum Percent')
-        # inds = [100, 1000, 10000]
-        inds = [10000]
+        inds = [100, 1000, 10000]
         cols = ['10%', '50%']
-        avg_main_percent
         data = [[avg_main_percent(n, .10, trials), avg_main_percent(n, .50, trials)] for n in inds]
         df = pd.DataFrame(data, columns=cols, index=inds)
 
@@ -165,14 +160,6 @@ def experiment(trials: int = 1000, run_max_time: bool = False, run_max_percent: 
             plt.ylabel('Minutes taken')
             plt.tight_layout()  # type: ignore
             plt.show()
-
-    # run your simulation several times to determine:
-    # 1. On average, what % of the attendees will have heard the rumor after 10 minutes?
-    # 2. On average, what % of the attendees will have heard the rumor after 20 minutes?
-    # 3. On average, what % of the attendees will have heard the rumor after 40 minutes?
-    # 4. At what time, t, will 10 % of the party have heard the rumor? N = 10, 000.
-    # 5. At what time, t, will 50 % of the party have heard the rumor? N = 10, 000.
-
 
 if __name__ == '__main__':
     argh.dispatch_commands([main, experiment])
